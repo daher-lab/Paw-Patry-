@@ -1,0 +1,136 @@
+.owner {
+  min-height: 70vh;
+  background: #0a0a0a;
+  color: #fff;
+  padding: clamp(6.5rem, 12vh, 8rem) clamp(1.25rem, 4vw, 3rem) 4rem;
+}
+
+.owner-gate,
+.owner-panel {
+  width: min(960px, 100%);
+  margin: 0 auto;
+}
+
+.owner-gate {
+  max-width: 26rem;
+  padding: 2rem;
+  border: 1px solid rgba(196, 163, 90, 0.28);
+  background: #111;
+}
+
+.owner-kicker {
+  margin-bottom: 0.75rem;
+  color: #c4a35a;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.owner h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-weight: 600;
+  margin-bottom: 0.6rem;
+}
+
+.owner-note {
+  color: rgba(255, 255, 255, 0.55);
+  font-weight: 300;
+  margin-bottom: 1.5rem;
+}
+
+.owner-gate form {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.owner-gate label {
+  display: grid;
+  gap: 0.4rem;
+}
+
+.owner-gate span {
+  color: #c4a35a;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.owner-gate input {
+  padding: 0.85rem 0.95rem;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: #0a0a0a;
+  color: #fff;
+  font: inherit;
+}
+
+.owner-gate input:focus {
+  outline: 1px solid #c4a35a;
+  border-color: #c4a35a;
+}
+
+.owner-error {
+  color: #e8a0a0;
+  font-size: 0.9rem;
+}
+
+.owner-top {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 1.5rem;
+}
+
+.owner-actions {
+  display: flex;
+  gap: 0.6rem;
+}
+
+.owner-table-wrap {
+  overflow-x: auto;
+  border: 1px solid rgba(196, 163, 90, 0.22);
+}
+
+.owner-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 560px;
+}
+
+.owner-table th,
+.owner-table td {
+  padding: 0.95rem 1rem;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.owner-table th {
+  color: #c4a35a;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  background: #111;
+}
+
+.owner-table td {
+  color: rgba(255, 255, 255, 0.78);
+  font-weight: 300;
+  font-size: 0.95rem;
+  line-height: 1.45;
+}
+
+.owner-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.owner-empty {
+  text-align: center !important;
+  color: rgba(255, 255, 255, 0.45) !important;
+  padding: 2rem 1rem !important;
+}
