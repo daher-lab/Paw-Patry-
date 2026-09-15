@@ -9,7 +9,7 @@ const FAQS = [
   },
   {
     q: "What are the age and spay/neuter requirements?",
-    a: "Dogs must be at least six months old. Dogs over twelve months must be spayed or neutered.",
+    a: "Dogs must be at least six months of age and spayed or neutered.",
   },
   {
     q: "Can I drop my dog off?",
@@ -21,7 +21,7 @@ const FAQS = [
   },
   {
     q: "What’s included with Premium?",
-    a: "Premium is $65/month for Monday–Sunday access and includes a free pup cup two days a week.",
+    a: "Premium is $65/month for Monday–Sunday access and includes a free pup cup every visit.",
   },
 ];
 

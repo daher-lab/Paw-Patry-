@@ -4,8 +4,10 @@ export const OWNER_AUTH_KEY = "pawpawrty-owner-auth";
 export type Feedback = {
   id: string;
   name: string;
-  liked: string;
-  improve: string;
+  comments: string;
+  /** @deprecated kept for older local entries */
+  liked?: string;
+  improve?: string;
   date: string;
 };
 

@@ -3,6 +3,7 @@ import { Link, NavLink, Outlet, useLocation } from "react-router-dom";
 
 const LINKS = [
   { to: "/", label: "Home", end: true },
+  { to: "/about", label: "About" },
   { to: "/memberships", label: "Memberships" },
   { to: "/rules", label: "Park Rules" },
   { to: "/faq", label: "FAQ" },

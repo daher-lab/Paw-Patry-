@@ -1,3 +1,8 @@
+import {
+  hasSignupUrl,
+  MEMBERSHIP_SIGNUP_URL,
+} from "../lib/portal";
+
 const PLANS = [
   {
     label: "Day Pass",
@@ -19,7 +24,7 @@ const PLANS = [
     price: "$65",
     suffix: "/mo",
     access: "Monday–Sunday access.",
-    perk: "Includes a free pup cup two days a week.",
+    perk: "Includes a free pup cup every visit.",
     featured: true,
   },
   {
@@ -33,6 +38,8 @@ const PLANS = [
 ];
 
 export default function MembershipsPage() {
+  const signupReady = hasSignupUrl();
+
   return (
     <>
       <header className="page-hero">
@@ -60,9 +67,29 @@ export default function MembershipsPage() {
                 </p>
                 <p className="access">{plan.access}</p>
                 {plan.perk ? <p className="perk">{plan.perk}</p> : null}
+                {signupReady ? (
+                  <a
+                    className="btn btn-gold plan-cta"
+                    href={MEMBERSHIP_SIGNUP_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Set up {plan.label}
+                  </a>
+                ) : (
+                  <a className="btn btn-gold plan-cta" href="/portal">
+                    Set up {plan.label}
+                  </a>
+                )}
               </article>
             ))}
           </div>
+          {!signupReady ? (
+            <p className="plan-note">
+              Online signup connects through the Dog Portal — links go live once
+              membership software is connected.
+            </p>
+          ) : null}
         </div>
       </div>
     </>

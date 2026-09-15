@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { useState } from "react";
 import type { FormEvent } from "react";
 import {
@@ -8,25 +9,28 @@ import {
 } from "../lib/feedback";
 import "./HomeView.css";
 
-const DOG_IMG = "/images/hero-dog-wide.jpg";
-const COFFEE_IMG = "/images/coffee-paw.jpg";
+const DOG_IMG = "/images/hero-dog-epoxy-grey.jpg";
 const OUTDOOR_IMG = "/images/dogs-outdoor-play.jpg";
+const FEEDBACK_EMAIL = "pawpawrty@gmail.com";
 
 export default function HomeView() {
   const [name, setName] = useState("");
-  const [liked, setLiked] = useState("");
-  const [improve, setImprove] = useState("");
+  const [comments, setComments] = useState("");
   const [sent, setSent] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState("");
 
-  function handleSubmit(e: FormEvent) {
+  async function handleSubmit(e: FormEvent) {
     e.preventDefault();
-    if (!liked.trim() && !improve.trim()) return;
+    if (!comments.trim()) return;
+
+    setSending(true);
+    setError("");
 
     const next: Feedback = {
       id: crypto.randomUUID(),
       name: name.trim() || "Guest",
-      liked: liked.trim(),
-      improve: improve.trim(),
+      comments: comments.trim(),
       date: new Date().toLocaleDateString("en-US", {
         month: "short",
         day: "numeric",
@@ -34,16 +38,40 @@ export default function HomeView() {
       }),
     };
 
-    const updated = [next, ...loadFeedback()];
-    saveFeedback(updated);
-    // keep key in sync if older code paths exist
-    localStorage.setItem(FEEDBACK_KEY, JSON.stringify(updated));
+    try {
+      const res = await fetch(
+        `https://formsubmit.co/ajax/${FEEDBACK_EMAIL}`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify({
+            name: next.name,
+            comments: next.comments,
+            _subject: "New Paw Pawrty feedback",
+            _template: "table",
+            _captcha: "false",
+          }),
+        },
+      );
 
-    setName("");
-    setLiked("");
-    setImprove("");
-    setSent(true);
-    window.setTimeout(() => setSent(false), 2500);
+      if (!res.ok) throw new Error("Could not send feedback");
+
+      const updated = [next, ...loadFeedback()];
+      saveFeedback(updated);
+      localStorage.setItem(FEEDBACK_KEY, JSON.stringify(updated));
+
+      setName("");
+      setComments("");
+      setSent(true);
+      window.setTimeout(() => setSent(false), 3000);
+    } catch {
+      setError("Couldn’t send right now. Please try again.");
+    } finally {
+      setSending(false);
+    }
   }
 
   return (
@@ -64,40 +92,45 @@ export default function HomeView() {
           <figure className="hp-photo hp-photo-dog">
             <img
               src={DOG_IMG}
-              alt="White Samoyed dog, the face of Paw Pawrty"
+              alt="White Samoyed dog on speckled epoxy flooring"
               width={1600}
               height={900}
-            />
-          </figure>
-          <figure className="hp-photo hp-photo-coffee">
-            <img
-              src={COFFEE_IMG}
-              alt="Craft coffee with paw-print latte art"
-              width={1024}
-              height={1024}
             />
           </figure>
         </div>
       </section>
 
       <section className="hp-about" id="about">
-        <div className="hp-about-inner">
-          <div className="hp-about-head">
-            <p className="hp-kicker ink">About Us</p>
-            <h2>A place for both ends of the leash.</h2>
-          </div>
-          <div className="hp-about-body">
-            <p>
-              Paw Pawrty was created around a simple idea: going somewhere with
-              your dog shouldn’t mean having nothing for you to do.
-            </p>
-            <p>
-              We offer a comfortable indoor/outdoor space in Westland, MI where
-              dogs can play and socialize while their humans sit back, grab a
-              drink, and connect. It’s not a drop-off site—you stay and enjoy
-              the experience together.
-            </p>
-          </div>
+        <div className="hp-about-wrap hp-about-short">
+          <p className="hp-kicker ink">About Paw Pawrty</p>
+          <h2>Where Dogs Play &amp; People Connect</h2>
+          <p>
+            Paw Pawrty was created around a simple idea: going somewhere with
+            your dog shouldn’t mean having nothing for you to do. It’s a
+            comfortable indoor/outdoor space in Westland, MI — not a drop-off
+            site. You stay and enjoy it together.
+          </p>
+          <Link className="btn btn-dark" to="/about">
+            Read our story
+          </Link>
+        </div>
+      </section>
+
+      <section className="hp-hours" id="hours">
+        <div className="hp-hours-inner">
+          <p className="hp-kicker">Hours</p>
+          <h2>Come play.</h2>
+          <ul>
+            <li>
+              <span>Sunday – Thursday</span>
+              <strong>12pm – 7pm</strong>
+            </li>
+            <li>
+              <span>Friday &amp; Saturday</span>
+              <strong>12pm – 9pm</strong>
+            </li>
+          </ul>
+          <p className="hp-hours-address">32838 Warren Rd, Westland, Michigan</p>
         </div>
       </section>
 
@@ -122,13 +155,10 @@ export default function HomeView() {
           <div className="hp-feedback-head">
             <p className="hp-kicker">Your Voice</p>
             <h2>Tell us what you think.</h2>
-            <p>
-              Share what you love and where we can improve — your feedback helps
-              shape Paw Pawrty.
-            </p>
+            <p>Share anything — what you loved, what we can improve, or both.</p>
           </div>
 
-          <form className="hp-feedback-form" onSubmit={handleSubmit}>
+          <form className="hp-feedback-form hp-feedback-simple" onSubmit={handleSubmit}>
             <label>
               <span>Name</span>
               <input
@@ -140,28 +170,23 @@ export default function HomeView() {
               />
             </label>
             <label>
-              <span>What do you like?</span>
+              <span>Comments</span>
               <textarea
-                value={liked}
-                onChange={(e) => setLiked(e.target.value)}
-                placeholder="Play areas, coffee, vibe…"
-                rows={3}
+                value={comments}
+                onChange={(e) => setComments(e.target.value)}
+                placeholder="Tell us anything…"
+                rows={5}
                 required
               />
             </label>
-            <label>
-              <span>Where can we improve?</span>
-              <textarea
-                value={improve}
-                onChange={(e) => setImprove(e.target.value)}
-                placeholder="Hours, treats, seating…"
-                rows={3}
-                required
-              />
-            </label>
-            <button className="btn btn-gold" type="submit">
-              {sent ? "Thanks — sent privately!" : "Submit Feedback"}
+            <button className="btn btn-gold" type="submit" disabled={sending}>
+              {sent
+                ? "Sent to Paw Pawrty!"
+                : sending
+                  ? "Sending…"
+                  : "Submit Feedback"}
             </button>
+            {error ? <p className="hp-feedback-error">{error}</p> : null}
           </form>
         </div>
       </section>

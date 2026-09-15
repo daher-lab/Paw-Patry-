@@ -1,4 +1,37 @@
-const RULES = [
+const HOUSE_RULES = [
+  {
+    title: "Supervise Your Dog",
+    body: "Stay with your dog and actively supervise them while they play.",
+    icon: "people",
+  },
+  {
+    title: "Respect Everyone",
+    body: "Aggressive behavior from dogs or disrespectful behavior from guests will not be tolerated. If play gets too rough, please step in.",
+    icon: "hands",
+  },
+  {
+    title: "Leash In. Leash Out.",
+    body: "Keep your dog leashed until you are safely inside the designated off-leash area. Leash up again before exiting.",
+    icon: "leash",
+  },
+  {
+    title: "Children Stay With an Adult",
+    body: "Children ages 5 and older are welcome with a supervising adult. For everyone’s safety, no running, screaming, chasing, teasing, or provoking dogs.",
+    icon: "child",
+  },
+  {
+    title: "Food & Drinks",
+    body: "Enjoy food and beverages in designated areas, and please don’t feed another guest’s dog without permission.",
+    icon: "food",
+  },
+  {
+    title: "Be Kind & Have Fun",
+    body: "Respect our guests, our team, and every pup. Paw Pawrty reserves the right to remove any person or dog whose behavior creates a safety concern.",
+    icon: "heart",
+  },
+];
+
+const ADMISSION = [
   {
     title: "Vaccination Requirements",
     body: "All dogs must have current Rabies, DHPP (Distemper/Parvo), and Bordetella vaccinations on file before entry.",
@@ -6,68 +39,18 @@ const RULES = [
   },
   {
     title: "Age & Spay/Neuter",
-    body: "Dogs must be at least six (6) months old. Dogs over twelve (12) months of age must be spayed or neutered.",
+    body: "Dogs must be at least six (6) months of age and spayed or neutered.",
     icon: "dog",
   },
   {
     title: "Health",
     body: "Dogs with contagious illnesses, fleas, ticks, open wounds, or recovering from surgery are not permitted.",
-    icon: "heart",
-  },
-  {
-    title: "Supervision",
-    body: "Owners must remain inside the park and actively supervise their dog at all times. Paw Pawrty staff are not responsible for supervising dogs.",
-    icon: "people",
-  },
-  {
-    title: "Aggressive Behavior",
-    body: "Aggressive, bullying, repeatedly mounting, resource guarding, excessive barking, or otherwise unsafe dogs may be removed immediately at staff discretion.",
     icon: "alert",
-  },
-  {
-    title: "Leashes",
-    body: "Dogs must remain leashed until inside the designated off-leash area and must be leashed before exiting.",
-    icon: "leash",
-  },
-  {
-    title: "Children",
-    body: "Children five (5) years and older are welcome only with a supervising adult. Running, screaming, chasing, teasing, climbing on fences, or provoking dogs is prohibited.",
-    icon: "child",
-  },
-  {
-    title: "Food & Drinks",
-    body: "Human food and beverages must stay in designated areas. Do not feed another person’s dog without permission.",
-    icon: "food",
-  },
-  {
-    title: "Respect Others",
-    body: "Treat guests and staff respectfully. Harassment, abusive language, or unsafe conduct will not be tolerated.",
-    icon: "hands",
   },
   {
     title: "Capacity",
     body: "Entry may be delayed due to capacity limits. Membership does not guarantee immediate admission during peak occupancy.",
     icon: "crowd",
-  },
-  {
-    title: "Waste Cleanup",
-    body: "Please clean up after your dog immediately and dispose of waste in the designated bins. Let’s keep our park clean!",
-    icon: "waste",
-  },
-  {
-    title: "Toys",
-    body: "Bring toys at your own risk. Do not bring toys if your dog is possessive. Paw Pawrty is not responsible for lost or damaged items.",
-    icon: "toy",
-  },
-  {
-    title: "Photography",
-    body: "Photos and videos may be taken for promotional purposes while on the premises.",
-    icon: "camera",
-  },
-  {
-    title: "Right to Refuse Service",
-    body: "Paw Pawrty reserves the right to refuse entry, remove any guest or dog, suspend or revoke memberships, and close the park due to weather, maintenance, emergencies, or safety concerns without refund where permitted by law.",
-    icon: "star",
   },
 ];
 
@@ -103,7 +86,6 @@ function RuleIcon({ name }: { name: string }) {
       return (
         <svg {...common}>
           <path d="M12 20s-7-4.4-7-10a4 4 0 017-2.5A4 4 0 0119 10c0 5.6-7 10-7 10z" />
-          <path d="M12 9v5M9.5 11.5h5" />
         </svg>
       );
     case "people":
@@ -175,21 +157,44 @@ function RuleIcon({ name }: { name: string }) {
           <path d="M12 6v12M6 12h12" />
         </svg>
       );
-    case "camera":
-      return (
-        <svg {...common}>
-          <path d="M4 8h3l1.5-2h7L17 8h3v11H4V8z" />
-          <circle cx="12" cy="13" r="3" />
-        </svg>
-      );
     default:
       return (
         <svg {...common}>
           <path d="M12 3l8 3v6c0 5-3.5 8.5-8 9-4.5-.5-8-4-8-9V6l8-3z" />
-          <path d="M12 9l1.2 2.4 2.6.4-1.9 1.9.5 2.6L12 15.2 9.6 16.3l.5-2.6-1.9-1.9 2.6-.4L12 9z" />
         </svg>
       );
   }
+}
+
+function RulesGrid({
+  rules,
+  startIndex = 0,
+}: {
+  rules: typeof HOUSE_RULES;
+  startIndex?: number;
+}) {
+  return (
+    <div className="rules-stage">
+      {rules.map((rule, i) => (
+        <article
+          className="rule-card"
+          key={rule.title}
+          style={{ animationDelay: `${0.04 * i}s` }}
+        >
+          <div className="rule-card-top">
+            <div className="rule-icon">
+              <RuleIcon name={rule.icon} />
+            </div>
+            <span className="rule-index">
+              {String(startIndex + i + 1).padStart(2, "0")}
+            </span>
+          </div>
+          <h3>{rule.title}</h3>
+          <p>{rule.body}</p>
+        </article>
+      ))}
+    </div>
+  );
 }
 
 export default function RulesPage() {
@@ -201,39 +206,34 @@ export default function RulesPage() {
             <span className="paw-deco" aria-hidden>
               ✦
             </span>
-            <p className="rules-kicker">Park Rules & Code of Conduct</p>
+            <p className="rules-kicker">House Rules</p>
             <span className="paw-deco" aria-hidden>
               ✦
             </span>
           </div>
           <h1>Play Nice. Stay Safe. Have Fun.</h1>
           <p className="rules-lead">
-            These rules are designed to keep every guest—human and canine—safe
-            and happy while visiting Paw Pawrty.
+            We want Paw Pawrty to be a place where dogs can play freely and their
+            humans can relax, connect, and enjoy the experience. A few simple
+            rules help keep it that way.
           </p>
           <div className="rules-hero-line" aria-hidden />
         </div>
       </header>
 
       <div className="rules-body">
-        <div className="rules-stage">
-          {RULES.map((rule, i) => (
-            <article
-              className="rule-card"
-              key={rule.title}
-              style={{ animationDelay: `${0.04 * i}s` }}
-            >
-              <div className="rule-card-top">
-                <div className="rule-icon">
-                  <RuleIcon name={rule.icon} />
-                </div>
-                <span className="rule-index">{String(i + 1).padStart(2, "0")}</span>
-              </div>
-              <h3>{rule.title}</h3>
-              <p>{rule.body}</p>
-            </article>
-          ))}
+        <RulesGrid rules={HOUSE_RULES} />
+
+        <div className="rules-section-label">
+          <p className="rules-kicker dark">Before you enter</p>
+          <h2>Admission requirements</h2>
+          <p>
+            Guests agree to our waiver and House Rules before participating.
+            Dogs must meet Paw Pawrty’s admission requirements first.
+          </p>
         </div>
+
+        <RulesGrid rules={ADMISSION} startIndex={HOUSE_RULES.length} />
 
         <div className="rules-closing">
           <div className="rules-closing-thanks">
@@ -246,19 +246,16 @@ export default function RulesPage() {
                 <circle cx="15.5" cy="5.2" r="2" />
               </svg>
             </div>
-            <p className="rules-thanks">Thank you!</p>
-            <p>
-              For helping us create a safe, fun, and positive experience for
-              everyone.
-            </p>
+            <p className="rules-thanks">Already checked in?</p>
+            <p>It’s time to play.</p>
           </div>
           <div className="rules-closing-ack">
             <p className="rules-ack-label">Guest acknowledgment</p>
             <p>
               By entering Paw Pawrty, I acknowledge that I have read, understand,
-              and agree to follow these Park Rules & Code of Conduct. Failure to
-              comply may result in immediate removal and/or suspension of future
-              privileges.
+              and agree to follow these House Rules & admission requirements.
+              Failure to comply may result in immediate removal and/or
+              suspension of future privileges.
             </p>
           </div>
         </div>
