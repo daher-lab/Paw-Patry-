@@ -22,12 +22,7 @@ export default function PortalPage() {
             </p>
             <div className="home-links" style={{ marginTop: "1.25rem" }}>
               {ready ? (
-                <a
-                  className="btn btn-gold"
-                  href={DOG_PORTAL_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
+                <a className="btn btn-gold" href={DOG_PORTAL_URL}>
                   Access Dog Portal
                 </a>
               ) : (

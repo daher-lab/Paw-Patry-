@@ -68,12 +68,7 @@ export default function MembershipsPage() {
                 <p className="access">{plan.access}</p>
                 {plan.perk ? <p className="perk">{plan.perk}</p> : null}
                 {signupReady ? (
-                  <a
-                    className="btn btn-gold plan-cta"
-                    href={MEMBERSHIP_SIGNUP_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
+                  <a className="btn btn-gold plan-cta" href={MEMBERSHIP_SIGNUP_URL}>
                     Set up {plan.label}
                   </a>
                 ) : (

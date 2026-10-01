@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, NavLink, Outlet, useLocation } from "react-router-dom";
+import { PORTAL_URL } from "../lib/portal";
 
 const LINKS = [
   { to: "/", label: "Home", end: true },
@@ -57,9 +58,9 @@ export default function Layout() {
           ))}
         </ul>
 
-        <Link className="nav-cta" to="/memberships">
+        <a className="nav-cta" href={PORTAL_URL}>
           Join the Pawrty
-        </Link>
+        </a>
 
         <button
           className="nav-toggle"
@@ -79,13 +80,13 @@ export default function Layout() {
             {l.label}
           </Link>
         ))}
-        <Link
+        <a
           className="accent"
-          to="/memberships"
+          href={PORTAL_URL}
           onClick={() => setMenuOpen(false)}
         >
           Join the Pawrty
-        </Link>
+        </a>
       </div>
 
       <main>
