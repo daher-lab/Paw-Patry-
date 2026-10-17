@@ -7,6 +7,7 @@ import MembershipsPage from "./pages/MembershipsPage";
 import OwnerFeedback from "./pages/OwnerFeedback";
 import PortalPage from "./pages/PortalPage";
 import RulesPage from "./pages/RulesPage";
+import TeamPage from "./pages/TeamPage";
 import "./index.css";
 
 export default function App() {
@@ -20,6 +21,8 @@ export default function App() {
           <Route path="rules" element={<RulesPage />} />
           <Route path="faq" element={<FaqPage />} />
           <Route path="portal" element={<PortalPage />} />
+          <Route path="hiring" element={<TeamPage />} />
+          <Route path="team" element={<Navigate to="/hiring" replace />} />
           <Route path="owner/feedback" element={<OwnerFeedback />} />
           <Route path="join" element={<Navigate to="/memberships" replace />} />
           <Route path="*" element={<Navigate to="/" replace />} />

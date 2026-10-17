@@ -9,6 +9,7 @@ const LINKS = [
   { to: "/rules", label: "Park Rules" },
   { to: "/faq", label: "FAQ" },
   { to: "/portal", label: "Dog Portal" },
+  { to: "/hiring", label: "Hiring" },
 ];
 
 export default function Layout() {
@@ -106,6 +107,7 @@ export default function Layout() {
               <Link to="/memberships">Memberships</Link>
               <Link to="/rules">Rules</Link>
               <Link to="/faq">FAQ</Link>
+              <Link to="/hiring">Hiring</Link>
             </nav>
           </div>
         </div>
