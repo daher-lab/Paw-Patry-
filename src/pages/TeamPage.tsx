@@ -6,7 +6,7 @@ export default function TeamPage() {
       <header className="page-hero">
         <div className="section-inner">
           <span className="eyebrow">Careers</span>
-          <h1>Join the Pawrty Team</h1>
+          <h1>Careers at Paw Pawrty</h1>
           <p>
             We’re hiring. Fill out a short application if you want to work with
             dogs and people at Paw Pawrty.

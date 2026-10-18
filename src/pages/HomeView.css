@@ -45,7 +45,18 @@
   margin-bottom: 1.25rem;
 }
 
-.hp-brand span {
+.hp-brand .brand-mark {
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.hp-brand .brand-paw-icon {
+  width: 0.78em;
+  height: 0.78em;
+  margin: 0 0.06em 0.04em;
+}
+
+.hp-brand .brand-word-second {
   color: var(--gold);
 }
 

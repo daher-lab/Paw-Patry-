@@ -21,8 +21,9 @@ export default function App() {
           <Route path="rules" element={<RulesPage />} />
           <Route path="faq" element={<FaqPage />} />
           <Route path="portal" element={<PortalPage />} />
-          <Route path="hiring" element={<TeamPage />} />
-          <Route path="team" element={<Navigate to="/hiring" replace />} />
+          <Route path="careers" element={<TeamPage />} />
+          <Route path="hiring" element={<Navigate to="/careers" replace />} />
+          <Route path="team" element={<Navigate to="/careers" replace />} />
           <Route path="owner/feedback" element={<OwnerFeedback />} />
           <Route path="join" element={<Navigate to="/memberships" replace />} />
           <Route path="*" element={<Navigate to="/" replace />} />

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, NavLink, Outlet, useLocation } from "react-router-dom";
 import { PORTAL_URL } from "../lib/portal";
+import BrandMark from "./BrandMark";
 
 const LINKS = [
   { to: "/", label: "Home", end: true },
@@ -9,7 +10,7 @@ const LINKS = [
   { to: "/rules", label: "Park Rules" },
   { to: "/faq", label: "FAQ" },
   { to: "/portal", label: "Dog Portal" },
-  { to: "/hiring", label: "Hiring" },
+  { to: "/careers", label: "Careers at Paw Pawrty" },
 ];
 
 export default function Layout() {
@@ -42,11 +43,8 @@ export default function Layout() {
       <header
         className={`nav ${scrolled || !isHome ? "scrolled" : ""} ${!isHome ? "solid" : ""}`}
       >
-        <Link className="nav-brand" to="/">
-          <span className="paw">
-            PAW
-          </span>
-          <span className="rty">PAWRTY</span>
+        <Link className="nav-brand" to="/" aria-label="Paw Pawrty">
+          <BrandMark />
         </Link>
 
         <ul className="nav-links">
@@ -107,7 +105,7 @@ export default function Layout() {
               <Link to="/memberships">Memberships</Link>
               <Link to="/rules">Rules</Link>
               <Link to="/faq">FAQ</Link>
-              <Link to="/hiring">Hiring</Link>
+              <Link to="/careers">Careers at Paw Pawrty</Link>
             </nav>
           </div>
         </div>

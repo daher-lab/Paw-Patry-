@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import BrandMark from "../components/BrandMark";
 import { useState } from "react";
 import type { FormEvent } from "react";
 import {
@@ -80,7 +81,7 @@ export default function HomeView() {
         <div className="hp-hero-copy">
           <p className="hp-kicker">Indoor / Outdoor Dog Park · Westland, MI</p>
           <h1 className="hp-brand">
-            Paw <span>Pawrty</span>
+            <BrandMark />
           </h1>
           <p className="hp-tagline">
             Something <em>BIG</em> is here.
