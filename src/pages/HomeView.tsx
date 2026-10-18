@@ -84,7 +84,7 @@ export default function HomeView() {
             <BrandMark />
           </h1>
           <p className="hp-tagline">
-            Something <em>BIG</em> is here.
+            World of <em>Pawsibilities</em>.
           </p>
           <p className="hp-sub">Where Dogs Play &amp; People Connect.</p>
         </div>
