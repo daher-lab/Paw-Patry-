@@ -1,4 +1,4 @@
-import { TEAM_APPLY_URL } from "../lib/jobs";
+import { JOB_SECTIONS, TEAM_APPLY_URL } from "../lib/jobs";
 
 export default function TeamPage() {
   return (
@@ -14,18 +14,23 @@ export default function TeamPage() {
         </div>
       </header>
       <div className="page-body">
-        <div className="section-inner">
-          <div className="portal-box">
-            <h2>Apply to work here</h2>
-            <p>
-              Tell us a bit about yourself. We’ll review applications and reach
-              out if there’s a fit.
-            </p>
-            <div className="home-links" style={{ marginTop: "1.25rem" }}>
-              <a className="btn btn-gold" href={TEAM_APPLY_URL}>
-                Apply now
-              </a>
-            </div>
+        <div className="section-inner job-wide">
+          <div className="job-row">
+            {JOB_SECTIONS.map((section) => (
+              <article className="job-card" key={section.title}>
+                <p className="label">{section.title}</p>
+                <ul>
+                  {section.items.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+              </article>
+            ))}
+          </div>
+          <div className="job-apply">
+            <a className="btn btn-gold" href={TEAM_APPLY_URL}>
+              Apply now
+            </a>
           </div>
         </div>
       </div>

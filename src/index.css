@@ -1086,6 +1086,59 @@ button {
   margin-bottom: 0;
 }
 
+.job-wide {
+  width: min(800px, 100%);
+}
+
+.job-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.15rem;
+  margin-top: 0.25rem;
+}
+
+.job-card {
+  border: 1px solid rgba(196, 163, 90, 0.4);
+  padding: 1.35rem 1.2rem 1.2rem;
+  background: var(--white);
+}
+
+.job-card .label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.85rem;
+}
+
+.job-card ul {
+  margin: 0;
+  padding-left: 1.1rem;
+  color: var(--muted);
+  font-size: 0.88rem;
+  font-weight: 300;
+}
+
+.job-card li {
+  margin-bottom: 0.45rem;
+  line-height: 1.45;
+}
+
+.job-card li:last-child {
+  margin-bottom: 0;
+}
+
+.job-card li::marker {
+  color: var(--gold);
+}
+
+.job-apply {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.75rem;
+}
+
 .portal-box {
   border: 1px solid var(--line);
   padding: 2rem;
