@@ -1,7 +1,5 @@
-import {
-  hasSignupUrl,
-  MEMBERSHIP_SIGNUP_URL,
-} from "../lib/portal";
+import { hasSignupUrl, MEMBERSHIP_SIGNUP_URL } from "../lib/portal";
+import "./HomeView.css";
 
 const PLANS = [
   {
@@ -39,54 +37,47 @@ const PLANS = [
 
 export default function MembershipsPage() {
   const signupReady = hasSignupUrl();
+  const href = signupReady ? MEMBERSHIP_SIGNUP_URL : "/portal";
 
   return (
-    <>
-      <header className="page-hero">
-        <div className="section-inner">
-          <span className="eyebrow">Memberships</span>
-          <h1>Play on your schedule.</h1>
-          <p>
-            Day passes for flexible fun. Memberships for the regulars. Peace of
-            mind for every visit.
-          </p>
-        </div>
+    <div className="zo-home zo-page">
+      <header className="zo-page-head">
+        <p className="zo-page-kicker">Memberships</p>
+        <h1>PLAY ON YOUR SCHEDULE</h1>
+        <p>
+          Day passes for flexible fun. Memberships for the regulars. Peace of
+          mind for every visit.
+        </p>
       </header>
-      <div className="page-body">
-        <div className="section-inner">
-          <div className="plan-row">
-            {PLANS.map((plan) => (
-              <article
-                className={`plan ${plan.featured ? "featured" : ""}`}
-                key={plan.label}
-              >
-                <p className="label">{plan.label}</p>
-                <p className="price">
-                  {plan.price}
-                  {plan.suffix ? <span>{plan.suffix}</span> : null}
-                </p>
-                <p className="access">{plan.access}</p>
-                {plan.perk ? <p className="perk">{plan.perk}</p> : null}
-                {signupReady ? (
-                  <a className="btn btn-gold plan-cta" href={MEMBERSHIP_SIGNUP_URL}>
-                    Set up {plan.label}
-                  </a>
-                ) : (
-                  <a className="btn btn-gold plan-cta" href="/portal">
-                    Set up {plan.label}
-                  </a>
-                )}
-              </article>
-            ))}
-          </div>
-          {!signupReady ? (
-            <p className="plan-note">
-              Online signup connects through the Dog Portal — links go live once
-              membership software is connected.
+
+      <div className="zo-plans">
+        {PLANS.map((plan) => (
+          <article
+            className={`zo-plan ${plan.featured ? "zo-plan-featured" : ""}`}
+            key={plan.label}
+          >
+            <p className="zo-plan-label">{plan.label}</p>
+            <p className="zo-plan-price">
+              {plan.price}
+              {plan.suffix ? <span>{plan.suffix}</span> : null}
             </p>
-          ) : null}
-        </div>
+            <p>{plan.access}</p>
+            {plan.perk ? <p>{plan.perk}</p> : null}
+            <a
+              className={plan.featured ? "zo-btn zo-btn-light" : "zo-btn"}
+              href={href}
+            >
+              SET UP {plan.label.toUpperCase()}
+            </a>
+          </article>
+        ))}
       </div>
-    </>
+      {!signupReady ? (
+        <p className="zo-page-note">
+          Online signup connects through the Dog Portal — links go live once
+          membership software is connected.
+        </p>
+      ) : null}
+    </div>
   );
 }

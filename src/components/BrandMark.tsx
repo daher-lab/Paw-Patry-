@@ -1,3 +1,5 @@
+import { publicUrl } from "../lib/publicUrl";
+
 type BrandMarkProps = {
   className?: string;
 };
@@ -9,7 +11,7 @@ export default function BrandMark({ className = "" }: BrandMarkProps) {
         P
         <img
           className="brand-paw-icon"
-          src="/images/paw-mark.png"
+          src={publicUrl("/images/logo-paw.png")}
           alt=""
         />
         w

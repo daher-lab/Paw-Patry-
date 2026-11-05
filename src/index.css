@@ -106,11 +106,12 @@ button {
 }
 
 .brand-paw-icon {
-  width: 0.78em;
-  height: 0.78em;
-  margin: 0 0.05em 0.04em;
+  width: 0.82em;
+  height: 0.82em;
+  margin: 0 0.04em 0.06em;
   object-fit: contain;
   display: inline-block;
+  vertical-align: middle;
 }
 
 .nav-brand .brand-mark {
@@ -1152,12 +1153,266 @@ button {
   margin-bottom: 0.65rem;
 }
 
+.legal-block h2 {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  margin: 1.5rem 0 0.5rem;
+}
+
+.legal-block p {
+  color: var(--muted);
+}
+
 /* Footer */
 .footer {
   background: var(--ink);
   color: rgba(255, 255, 255, 0.55);
   padding: 2.5rem clamp(1.25rem, 4vw, 3rem);
   border-top: 1px solid rgba(196, 163, 90, 0.2);
+}
+
+.footer-zo {
+  background: #0a0a0a;
+  color: #fff;
+  padding: 2.75rem 1.25rem 0;
+  border-top: none;
+  overflow: visible;
+}
+
+.footer-zo-top {
+  width: min(1100px, 100%);
+  margin: 0 auto;
+  display: grid;
+  gap: 2rem;
+}
+
+@media (min-width: 800px) {
+  .footer-zo-top {
+    grid-template-columns: 1.05fr 1fr 1.15fr 1.1fr;
+    gap: 2.25rem;
+    align-items: start;
+  }
+}
+
+.footer-logo-badge {
+  width: 9.5rem;
+  height: 9.5rem;
+  border-radius: 50%;
+  background: #fff;
+  color: #111;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.1rem;
+}
+
+.footer-logo-badge .brand-mark {
+  font-family: "Oswald", sans-serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #111;
+  flex-direction: column;
+  gap: 0.05em;
+  line-height: 1;
+  text-align: center;
+}
+
+.footer-logo-badge .brand-word-second {
+  color: #111;
+}
+
+.footer-logo-badge .brand-paw-icon {
+  width: 1.05em;
+  height: 1.15em;
+}
+
+.footer-socials {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.footer-zo .footer-socials a {
+  width: 2.1rem;
+  height: 2.1rem;
+  border-radius: 50%;
+  background: #fff;
+  color: #111;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer-zo .footer-socials a:hover {
+  background: #f3eee6;
+  color: #111;
+  text-decoration: none;
+}
+
+.footer-socials svg {
+  width: 1.05rem;
+  height: 1.05rem;
+}
+
+.footer-copy {
+  margin: 0;
+  font-size: 0.78rem;
+  line-height: 1.45;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 400;
+}
+
+.footer-address,
+.footer-hours {
+  color: #fff;
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.45;
+}
+
+.footer-hours {
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.footer-zo-follow {
+  width: min(1100px, 100%);
+  margin: 2rem auto 0;
+  padding: 1.25rem 0 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.18);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+
+.footer-zo-follow .footer-col-title {
+  margin: 0;
+}
+
+.footer-col {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.footer-col-title {
+  font-weight: 800;
+  font-size: 1.05rem;
+  color: #fff;
+  margin-bottom: 0.35rem;
+}
+
+.footer-col a {
+  color: #fff;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.footer-col a:hover {
+  text-decoration: underline;
+}
+
+.footer-zo-bar {
+  width: min(1100px, 100%);
+  margin: 1.35rem auto 0;
+  padding: 1.15rem 0 0.35rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.18);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem 1.5rem;
+}
+
+.footer-zo-legal {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.55rem 0.7rem;
+}
+
+.footer-zo-legal a {
+  color: #fff;
+  font-size: 0.88rem;
+  font-weight: 700;
+}
+
+.footer-zo-legal span {
+  color: rgba(255, 255, 255, 0.45);
+  font-size: 0.88rem;
+}
+
+.footer-zo-legal a:hover {
+  text-decoration: underline;
+}
+
+.footer-wordmark {
+  position: relative;
+  width: min(1100px, 100%);
+  margin: 2.5rem auto 0;
+  padding: 0.5rem 0 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.02em;
+  overflow: visible;
+}
+
+.footer-wordmark-deco {
+  position: relative;
+  width: 100%;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+  z-index: 0;
+}
+
+.footer-deco-dog,
+.footer-deco-paw {
+  height: clamp(7.5rem, 16vw, 11.5rem);
+  width: auto;
+  display: block;
+  object-fit: contain;
+  user-select: none;
+}
+
+.footer-deco-paw {
+  filter: brightness(0) invert(1);
+  transform: rotate(8deg);
+}
+
+.footer-wordmark p {
+  position: relative;
+  z-index: 1;
+  font-family: "Oswald", "Arial Narrow", sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.045em;
+  color: #f3eee6;
+  text-transform: uppercase;
+  user-select: none;
+  margin: 0;
+  text-align: center;
+  line-height: 0.86;
+  white-space: nowrap;
+}
+
+.footer-wordmark-many {
+  font-size: clamp(3.2rem, 12vw, 8rem);
+}
+
+.footer-wordmark-paws {
+  font-size: clamp(2.8rem, 12.6vw, 9.5rem);
+}
+
+@media (max-width: 720px) {
+  .footer-deco-dog,
+  .footer-deco-paw {
+    height: clamp(4.75rem, 24vw, 7rem);
+  }
 }
 
 .footer-inner {
@@ -1231,4 +1486,182 @@ button {
 
 .footer-links a:hover {
   color: var(--gold);
+}
+
+.footer-faq {
+  align-self: flex-start;
+  margin-top: 0.35rem;
+  padding: 0.62rem 0.95rem;
+  border-radius: 999px;
+  background: #fff;
+  color: #111 !important;
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.footer-faq:hover {
+  background: #f3eee6;
+  text-decoration: none;
+}
+
+.chat-widget {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  z-index: 40;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.6rem;
+}
+
+.chat-toggle {
+  position: relative;
+  border: none;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+  line-height: 0;
+  animation: dog-hello 2.6s ease forwards;
+}
+
+.chat-toggle img {
+  height: 11.5rem;
+  width: auto;
+  display: block;
+}
+
+@keyframes dog-hello {
+  0% {
+    transform: translateY(-2.4rem) rotate(-8deg);
+  }
+  15% {
+    transform: translateY(-2.8rem) rotate(12deg);
+  }
+  30% {
+    transform: translateY(-2.2rem) rotate(-14deg);
+  }
+  45% {
+    transform: translateY(-2.6rem) rotate(10deg);
+  }
+  60% {
+    transform: translateY(-1.4rem) rotate(-4deg);
+  }
+  100% {
+    transform: translateY(0) rotate(0);
+  }
+}
+
+.chat-panel {
+  width: min(28rem, calc(100vw - 1.5rem));
+  min-height: 24rem;
+  background: #fff;
+  color: #111;
+  border-radius: 1.1rem;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.28);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.chat-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.85rem 1rem;
+  background: #111;
+  color: #fff;
+}
+
+.chat-head p {
+  margin: 0;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.chat-head button,
+.chat-form button,
+.chat-starters button {
+  border: none;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.chat-log {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex: 1;
+  min-height: 14rem;
+  max-height: 26rem;
+  overflow: auto;
+  padding: 0.9rem 0.9rem 0.4rem;
+}
+
+.chat-msg {
+  margin: 0;
+  max-width: 90%;
+  padding: 0.6rem 0.75rem;
+  border-radius: 0.85rem;
+  font-size: 0.92rem;
+  line-height: 1.4;
+  font-weight: 500;
+}
+
+.chat-msg-paw {
+  background: #f3eee6;
+  color: #111;
+}
+
+.chat-msg-you {
+  align-self: flex-end;
+  background: #111;
+  color: #fff;
+}
+
+.chat-starters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  padding: 0.4rem 0.9rem 0.2rem;
+}
+
+.chat-starters button {
+  border: 1px solid #111;
+  border-radius: 999px;
+  padding: 0.35rem 0.65rem;
+  color: #111;
+}
+
+.chat-form {
+  display: flex;
+  gap: 0.4rem;
+  padding: 0.75rem 0.9rem 0.9rem;
+}
+
+.chat-form input {
+  flex: 1;
+  min-width: 0;
+  border: 1px solid #111;
+  border-radius: 999px;
+  padding: 0.55rem 0.8rem;
+  font: inherit;
+  font-size: 0.92rem;
+}
+
+.chat-form button {
+  border-radius: 999px;
+  background: #111;
+  color: #fff;
+  padding: 0.55rem 0.8rem;
 }
