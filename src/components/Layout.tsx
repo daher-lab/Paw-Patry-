@@ -185,6 +185,8 @@ export default function Layout() {
             <span aria-hidden="true">|</span>
             <Link to="/legal/terms">Terms &amp; Conditions</Link>
             <span aria-hidden="true">|</span>
+            <Link to="/legal/cancellation">Cancellation Policy</Link>
+            <span aria-hidden="true">|</span>
             <Link to="/legal/copyright">Copyright</Link>
           </nav>
         </div>

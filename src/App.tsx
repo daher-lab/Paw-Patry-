@@ -33,6 +33,7 @@ export default function App() {
           <Route path="privacy" element={<Navigate to="/legal/privacy" replace />} />
           <Route path="terms" element={<Navigate to="/legal/terms" replace />} />
           <Route path="copyright" element={<Navigate to="/legal/copyright" replace />} />
+          <Route path="cancellation" element={<Navigate to="/legal/cancellation" replace />} />
           <Route path="legal/:slug" element={<LegalPage />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Route>

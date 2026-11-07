@@ -6,7 +6,7 @@ export type LegalSection = {
 };
 
 export type LegalDoc = {
-  slug: "privacy" | "terms" | "copyright";
+  slug: "privacy" | "terms" | "cancellation" | "copyright";
   title: string;
   updated: string;
   lede?: string;
@@ -128,7 +128,7 @@ export const LEGAL_DOCS: LegalDoc[] = [
       },
       {
         heading: "7. Cancellations and refunds",
-        body: "Cancellations and refunds are covered by our separate Cancellation & Refund Policy, which is part of these terms.",
+        body: "All sales are final. There are no returns or refunds. Our Cancellation & Refund Policy is part of these terms.",
       },
       {
         heading: "8. Removal from the park",
@@ -160,6 +160,30 @@ export const LEGAL_DOCS: LegalDoc[] = [
       },
       {
         heading: "15. Contact",
+        body: "Email: pawpawrty@gmail.com\nMail: Paw Pawrty LLC, 32838 Warren Rd, Westland, MI\nInstagram: @pawpawrtyllc",
+      },
+    ],
+  },
+  {
+    slug: "cancellation",
+    title: "Cancellation & Refund Policy",
+    updated: "November 2026",
+    lede: "Effective November 2026.",
+    sections: [
+      {
+        heading: "Sales are final",
+        body: "All sales are final. Day passes, memberships, and any other purchase from Paw Pawrty cannot be returned.",
+      },
+      {
+        heading: "No refunds",
+        body: "We do not give refunds, credits, or exchanges. This includes unused visits and time left on a membership.",
+      },
+      {
+        heading: "Part of our terms",
+        body: "This policy is part of our Terms & Conditions. By booking, buying, or entering the park, you agree to it.",
+      },
+      {
+        heading: "Contact",
         body: "Email: pawpawrty@gmail.com\nMail: Paw Pawrty LLC, 32838 Warren Rd, Westland, MI\nInstagram: @pawpawrtyllc",
       },
     ],
