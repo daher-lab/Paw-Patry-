@@ -339,6 +339,36 @@
   background: #fff;
 }
 
+.site-home .nav-mobile {
+  background: #f3eee6;
+  padding: 7.2rem 1.35rem 2rem;
+  gap: 0.15rem;
+}
+
+.site-home .nav-mobile a {
+  color: #111;
+  font-family: "Oswald", sans-serif;
+  font-weight: 700;
+  font-size: 2rem;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  line-height: 1.15;
+  padding: 0.35rem 0;
+}
+
+.site-home .nav-mobile a.accent {
+  align-self: flex-start;
+  margin-top: 1.1rem;
+  background: #111;
+  color: #f3eee6;
+  border-radius: 999px;
+  padding: 0.85rem 1.35rem;
+  font-family: "Manrope", sans-serif;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+}
+
 .site-home .footer.footer-zo {
   background: #0a0a0a;
   color: #fff;
@@ -436,17 +466,107 @@
 }
 
 .zo-plan-price span {
-  display: block;
-  margin-top: 0.2rem;
+  display: inline;
+  margin-left: 0.15rem;
   font-family: var(--font-body);
-  font-size: 0.85rem;
+  font-size: 0.95rem;
   font-weight: 800;
   letter-spacing: 0.04em;
   text-transform: uppercase;
 }
 
+.zo-plan-perk {
+  font-size: 0.95rem;
+}
+
+.zo-plan-extra {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 0.15rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid rgba(17, 17, 17, 0.12);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.zo-plan-featured .zo-plan-extra {
+  border-top-color: rgba(255, 255, 255, 0.22);
+}
+
+.zo-plan-extra strong {
+  font-family: var(--display);
+  font-size: 1.65rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  line-height: 1;
+}
+
+.zo-plan-extra small {
+  margin-left: 0.15rem;
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+}
+
 .zo-plan .zo-btn {
   margin-top: auto;
+}
+
+.zo-plan-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+  width: 100%;
+  margin-top: auto;
+}
+
+.zo-plan-actions .zo-btn {
+  margin-top: 0;
+  width: 100%;
+  min-height: 4.4rem;
+  padding: 0.7rem 0.45rem;
+  flex-direction: column;
+  gap: 0.2rem;
+  line-height: 1.1;
+}
+
+.zo-plan-actions .zo-btn span {
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+}
+
+.zo-plan-actions .zo-btn strong {
+  font-family: var(--display);
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+.zo-btn-line {
+  background: transparent;
+  color: var(--ink);
+  border: 2px solid var(--ink);
+}
+
+.zo-btn-ghost {
+  background: transparent;
+  color: #fff;
+  border: 2px solid #fff;
+}
+
+.zo-plan-cap {
+  width: min(860px, calc(100% - 1.7rem));
+  margin: -1.4rem auto 2.2rem;
+  text-align: center;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
 }
 
 .zo-page-note {

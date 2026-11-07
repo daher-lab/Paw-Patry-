@@ -7,6 +7,7 @@ const PLANS = [
     price: "$20",
     access: "One visit — perfect for flexible fun.",
     perk: "",
+    second: "",
     featured: false,
   },
   {
@@ -14,7 +15,8 @@ const PLANS = [
     price: "$50",
     suffix: "/mo",
     access: "Monday–Friday access.",
-    perk: "Second dog $40/month. Two dogs max.",
+    perk: "",
+    second: "$90",
     featured: false,
   },
   {
@@ -22,7 +24,8 @@ const PLANS = [
     price: "$65",
     suffix: "/mo",
     access: "Monday–Sunday access.",
-    perk: "Includes a free pup cup every visit. Second dog $50/month. Two dogs max.",
+    perk: "Free pup cup every visit.",
+    second: "$105",
     featured: true,
   },
   {
@@ -31,6 +34,7 @@ const PLANS = [
     suffix: "/yr",
     access: "Year-round play for regulars.",
     perk: "",
+    second: "",
     featured: false,
   },
 ];
@@ -57,21 +61,49 @@ export default function MembershipsPage() {
             key={plan.label}
           >
             <p className="zo-plan-label">{plan.label}</p>
-            <p className="zo-plan-price">
-              {plan.price}
-              {plan.suffix ? <span>{plan.suffix}</span> : null}
-            </p>
+            {plan.second ? null : (
+              <p className="zo-plan-price">
+                {plan.price}
+                {plan.suffix ? <span>{plan.suffix}</span> : null}
+              </p>
+            )}
             <p>{plan.access}</p>
-            {plan.perk ? <p>{plan.perk}</p> : null}
-            <a
-              className={plan.featured ? "zo-btn zo-btn-light" : "zo-btn"}
-              href={href}
-            >
-              SET UP {plan.label.toUpperCase()}
-            </a>
+            {plan.perk ? <p className="zo-plan-perk">{plan.perk}</p> : null}
+            {plan.second ? (
+              <div className="zo-plan-actions">
+                <a
+                  className={plan.featured ? "zo-btn zo-btn-light" : "zo-btn"}
+                  href={href}
+                >
+                  <span>One dog</span>
+                  <strong>
+                    {plan.price}
+                    {plan.suffix}
+                  </strong>
+                </a>
+                <a
+                  className={plan.featured ? "zo-btn zo-btn-ghost" : "zo-btn zo-btn-line"}
+                  href={href}
+                >
+                  <span>Two dogs</span>
+                  <strong>
+                    {plan.second}
+                    {plan.suffix}
+                  </strong>
+                </a>
+              </div>
+            ) : (
+              <a
+                className={plan.featured ? "zo-btn zo-btn-light" : "zo-btn"}
+                href={href}
+              >
+                SET UP {plan.label.toUpperCase()}
+              </a>
+            )}
           </article>
         ))}
       </div>
+      <p className="zo-plan-cap">Two dogs max.</p>
       {!signupReady ? (
         <p className="zo-page-note">
           Online signup connects through the Dog Portal — links go live once

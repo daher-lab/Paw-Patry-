@@ -119,12 +119,12 @@ export const LEGAL_DOCS: LegalDoc[] = [
         body: "",
         list: [
           "Day Pass: $20, valid for one visit, one dog.",
-          "Monthly: $50/month for the first dog, Monday–Friday access. A second dog is $40/month.",
-          "Premium: $65/month for the first dog, Monday–Sunday access, includes a free pup cup each visit. A second dog is $50/month.",
+          "Monthly: $50/month for one dog, Monday–Friday access. Two dogs are $90/month.",
+          "Premium: $65/month for one dog, Monday–Sunday access, includes a free pup cup each visit. Two dogs are $105/month.",
           "Annual: $500/year.",
         ],
         after:
-          "Monthly and Premium memberships renew automatically each month until cancelled. Prices may change. We will notify members at least 30 days before a price change takes effect. A membership covers one dog. A second dog can be added on Monthly or Premium. Two dogs max. Memberships are not transferable.",
+          "Monthly and Premium memberships renew automatically each month until cancelled. Prices may change. We will notify members at least 30 days before a price change takes effect. A maximum of two dogs is allowed. No membership covers more than two dogs. Memberships are not transferable.",
       },
       {
         heading: "7. Cancellations and refunds",

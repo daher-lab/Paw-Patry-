@@ -81,7 +81,7 @@ export default function Layout() {
           href={PORTAL_URL}
           onClick={() => setMenuOpen(false)}
         >
-          Join the Pawrty
+          Join now
         </a>
       </div>
 
