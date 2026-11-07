@@ -10,12 +10,14 @@ import RulesPage from "./pages/RulesPage";
 import TeamPage from "./pages/TeamPage";
 import LegalPage from "./pages/LegalPage";
 import ReviewPage from "./pages/ReviewPage";
+import AppPreview from "./pages/AppPreview";
 import "./index.css";
 
 export default function App() {
   return (
     <BrowserRouter basename={import.meta.env.BASE_URL.replace(/\/$/, "") || "/"}>
       <Routes>
+        <Route path="app-preview" element={<AppPreview />} />
         <Route element={<Layout />}>
           <Route index element={<HomePage />} />
           <Route path="about" element={<AboutPage />} />

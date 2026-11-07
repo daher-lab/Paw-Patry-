@@ -1,0 +1,259 @@
+.pp-app {
+  --floor: #f3eee6;
+  --ink: #111111;
+  --white: #ffffff;
+  --muted: #5c574f;
+  min-height: 100dvh;
+  background: var(--floor);
+  color: var(--ink);
+  display: flex;
+  flex-direction: column;
+  font-family: "Manrope", sans-serif;
+}
+
+.pp-top {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: calc(0.85rem + env(safe-area-inset-top)) 1.15rem 0.7rem;
+}
+
+.pp-top img {
+  width: 1.7rem;
+  height: 1.7rem;
+  object-fit: contain;
+}
+
+.pp-top span {
+  font-family: "Oswald", sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 1.05rem;
+}
+
+.pp-main {
+  flex: 1;
+  padding: 0.35rem 1.15rem 6.5rem;
+}
+
+.pp-screen h1 {
+  font-family: "Oswald", sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  line-height: 0.95;
+  font-size: 2.15rem;
+  margin: 0 0 1rem;
+}
+
+.pp-kicker {
+  margin: 0 0 0.35rem;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.pp-pass,
+.pp-card {
+  background: var(--white);
+  border-radius: 1.4rem;
+  padding: 1rem;
+}
+
+.pp-who {
+  display: flex;
+  gap: 0.85rem;
+  align-items: center;
+}
+
+.pp-who img,
+.pp-hero {
+  width: 4.4rem;
+  height: 4.4rem;
+  border-radius: 1rem;
+  object-fit: cover;
+}
+
+.pp-who strong,
+.pp-cardline,
+.pp-big {
+  display: block;
+  font-family: "Oswald", sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  font-size: 1.35rem;
+  line-height: 1;
+}
+
+.pp-who span,
+.pp-sub,
+.pp-label {
+  display: block;
+  color: var(--muted);
+  font-size: 0.92rem;
+  font-weight: 600;
+  margin-top: 0.2rem;
+}
+
+.pp-who em {
+  display: inline-block;
+  margin-top: 0.4rem;
+  font-style: normal;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: var(--ink);
+  color: var(--white);
+  border-radius: 999px;
+  padding: 0.28rem 0.55rem;
+}
+
+.pp-qr {
+  margin: 1rem auto 0.55rem;
+  width: min(68vw, 240px);
+  background: var(--white);
+  border: 1px solid #ece7df;
+  border-radius: 1rem;
+  padding: 0.7rem;
+}
+
+.pp-qr img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.pp-qr-note {
+  margin: 0;
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+.pp-card + .pp-card,
+.pp-feed {
+  margin-top: 0.75rem;
+}
+
+.pp-feed {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.pp-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+
+.pp-money {
+  margin: 0.15rem 0 0;
+  font-family: "Oswald", sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  line-height: 1;
+}
+
+.pp-money span {
+  font-family: "Manrope", sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+.pp-card h2 {
+  font-family: "Oswald", sans-serif;
+  text-transform: uppercase;
+  font-size: 1.25rem;
+  line-height: 1;
+  margin: 0.25rem 0 0.35rem;
+}
+
+.pp-hero {
+  width: 100%;
+  height: 16rem;
+  border-radius: 1.4rem;
+  margin-bottom: 0.75rem;
+}
+
+.pp-rows p {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin: 0;
+  padding: 0.72rem 0;
+  border-bottom: 1px solid #efeae3;
+  font-size: 0.98rem;
+}
+
+.pp-rows p:last-child {
+  border-bottom: 0;
+  padding-bottom: 0.15rem;
+}
+
+.pp-rows span {
+  color: var(--muted);
+  font-weight: 700;
+}
+
+.pp-rows strong {
+  font-weight: 800;
+}
+
+.pp-tabs {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.2rem;
+  padding: 0.45rem 0.4rem calc(0.45rem + env(safe-area-inset-bottom));
+  background: rgba(243, 238, 230, 0.94);
+  backdrop-filter: blur(10px);
+  border-top: 1px solid rgba(17, 17, 17, 0.08);
+}
+
+.pp-tabs button {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  color: #8a847b;
+  font-family: "Manrope", sans-serif;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  display: grid;
+  justify-items: center;
+  gap: 0.15rem;
+  padding: 0.25rem 0;
+}
+
+.pp-tabs button.is-on {
+  color: var(--ink);
+}
+
+.pp-tabs svg {
+  width: 1.35rem;
+  height: 1.35rem;
+}
+
+@media (min-width: 520px) {
+  body:has(.pp-app) {
+    background: #d9d3c8;
+  }
+
+  .pp-app {
+    width: min(420px, 100%);
+    margin: 0 auto;
+    min-height: 100dvh;
+    box-shadow: 0 0 0 1px rgba(17, 17, 17, 0.06);
+  }
+}

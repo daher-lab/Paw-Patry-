@@ -14,7 +14,7 @@ const PLANS = [
     price: "$50",
     suffix: "/mo",
     access: "Monday–Friday access.",
-    perk: "",
+    perk: "Second dog $40/month. Two dogs max.",
     featured: false,
   },
   {
@@ -22,7 +22,7 @@ const PLANS = [
     price: "$65",
     suffix: "/mo",
     access: "Monday–Sunday access.",
-    perk: "Includes a free pup cup every visit.",
+    perk: "Includes a free pup cup every visit. Second dog $50/month. Two dogs max.",
     featured: true,
   },
   {

@@ -21,7 +21,7 @@ export const FAQS = [
   },
   {
     q: "What’s included with Premium?",
-    a: "Premium is $65/month for Monday–Sunday access and includes a free pup cup every visit.",
+    a: "Premium is $65/month for the first dog, Monday–Sunday, and includes a free pup cup every visit. A second dog is $50/month. Two dogs max.",
   },
 ];
 
@@ -58,12 +58,12 @@ const REPLIES: { keys: string[]; answer: string }[] = [
   {
     keys: ["premium", "pup cup"],
     answer:
-      "Premium is $65 a month, Monday–Sunday, and includes a free pup cup every visit.",
+      "Premium is $65 a month for the first dog, Monday–Sunday, and includes a free pup cup every visit. A second dog is $50 a month. Two dogs max.",
   },
   {
     keys: ["price", "cost", "membership", "day pass", "how much", "monthly", "annual"],
     answer:
-      "Day pass $20. Monthly $50 for Monday–Friday. Premium $65 a month for all week, with a pup cup. Annual $500.",
+      "Day pass $20 for one dog. Monthly $50 for the first dog, Monday–Friday, and $40 for a second dog. Premium $65 for the first dog, all week, with a pup cup, and $50 for a second dog. Two dogs max. Annual $500.",
   },
   {
     keys: ["leash"],
