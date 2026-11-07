@@ -101,6 +101,7 @@ export default function OwnerFeedback() {
             <thead>
               <tr>
                 <th scope="col">Client</th>
+                <th scope="col">Phone</th>
                 <th scope="col">Comments</th>
                 <th scope="col">Date</th>
               </tr>
@@ -108,7 +109,7 @@ export default function OwnerFeedback() {
             <tbody>
               {entries.length === 0 ? (
                 <tr>
-                  <td colSpan={3} className="owner-empty">
+                  <td colSpan={4} className="owner-empty">
                     No feedback yet.
                   </td>
                 </tr>
@@ -116,6 +117,7 @@ export default function OwnerFeedback() {
                 entries.map((row) => (
                   <tr key={row.id}>
                     <td>{row.name}</td>
+                    <td>{row.phone || "—"}</td>
                     <td>
                       {row.comments ||
                         [row.liked, row.improve].filter(Boolean).join(" · ") ||

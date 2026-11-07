@@ -7,6 +7,7 @@ const FEEDBACK_EMAIL = "pawpawrty@gmail.com";
 
 export default function ReviewPage() {
   const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
   const [comments, setComments] = useState("");
   const [sent, setSent] = useState(false);
   const [sending, setSending] = useState(false);
@@ -14,7 +15,7 @@ export default function ReviewPage() {
 
   async function handleSubmit(event: FormEvent) {
     event.preventDefault();
-    if (!comments.trim()) return;
+    if (!comments.trim() || !phone.trim()) return;
 
     setSending(true);
     setError("");
@@ -22,6 +23,7 @@ export default function ReviewPage() {
     const next: Feedback = {
       id: crypto.randomUUID(),
       name: name.trim() || "Guest",
+      phone: phone.trim(),
       comments: comments.trim(),
       date: new Date().toLocaleDateString("en-US", {
         month: "short",
@@ -38,8 +40,9 @@ export default function ReviewPage() {
           Accept: "application/json",
         },
         body: JSON.stringify({
-          name: next.name,
-          comments: next.comments,
+          Name: next.name,
+          Phone: next.phone,
+          Comments: next.comments,
           _subject: "New Paw Pawrty feedback",
           _template: "table",
           _captcha: "false",
@@ -50,6 +53,7 @@ export default function ReviewPage() {
 
       saveFeedback([next, ...loadFeedback()]);
       setName("");
+      setPhone("");
       setComments("");
       setSent(true);
     } catch {
@@ -82,6 +86,17 @@ export default function ReviewPage() {
             onChange={(event) => setName(event.target.value)}
             placeholder="Your name"
             autoComplete="name"
+          />
+        </label>
+        <label>
+          <span>Phone</span>
+          <input
+            type="tel"
+            value={phone}
+            onChange={(event) => setPhone(event.target.value)}
+            placeholder="Your phone number"
+            autoComplete="tel"
+            required
           />
         </label>
         <label>

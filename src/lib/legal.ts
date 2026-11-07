@@ -124,7 +124,7 @@ export const LEGAL_DOCS: LegalDoc[] = [
           "Annual: $500/year.",
         ],
         after:
-          "Monthly and Premium memberships renew automatically each month until cancelled. Prices may change. We will notify members at least [30] days before a price change takes effect. Memberships cover [one dog] and are not transferable.",
+          "Monthly and Premium memberships renew automatically each month until cancelled. Prices may change. We will notify members at least 30 days before a price change takes effect. Memberships cover one dog and are not transferable.",
       },
       {
         heading: "7. Cancellations and refunds",
