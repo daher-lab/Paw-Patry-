@@ -1,5 +1,5 @@
-/** Pet Parent Portal (Gingr) — memberships, day passes, and dog check-in. */
-export const PORTAL_URL = "https://pawpawrty.portal.gingrapp.com";
+/** Member portal — memberships, day passes, and dog check-in. */
+export const PORTAL_URL = "https://pawpawrty.byteboundhq.com/";
 
 export const DOG_PORTAL_URL = PORTAL_URL;
 
